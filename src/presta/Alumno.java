@@ -4,7 +4,7 @@ class Alumno {
     
      private String correo;
      private String contrasena;
-
+     
     public Alumno() {
         correo = new String();
         contrasena = new String();
