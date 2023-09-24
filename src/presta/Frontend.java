@@ -8,10 +8,12 @@ import javax.swing.JOptionPane;
 
 public class Frontend extends javax.swing.JFrame {
     private Backend backend;
+    private Google google;
     
     public Frontend() {
         initComponents();
         backend = new Backend();
+        google = new Google();
     }
 
     /**
@@ -160,10 +162,9 @@ public class Frontend extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarActionPerformed
-    backend.getAlumno().setCorreo(correo.getText());
-    backend.getAlumno().setContrasena(contrasena.getText());
+    backend.iniciarSesion(correo.getText(), contrasena.getText());
     
-    if (backend.getGoogle().verificar()) {
+    if (google.verificar(correo.getText())) {
         Prestamos newframe = new Prestamos();
         newframe.setVisible(true);
         this.dispose();
